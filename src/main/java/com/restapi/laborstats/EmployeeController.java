@@ -1,6 +1,7 @@
 package com.restapi.laborstats;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,9 +17,8 @@ import com.google.gson.Gson;
 
 @RestController
 public class EmployeeController {
-	
-	@Autowired 	private RestTemplate restTemplate;
-	private ObjectMapper objectMapper;
+
+	private final RestTemplate restTemplate = new RestTemplate();
 	Gson gson = new Gson();
 	@RequestMapping(value="/allEmployees",method=RequestMethod.GET)
 	public EmployeeResponse allEmployeesMethod() {
