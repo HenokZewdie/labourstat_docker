@@ -11,6 +11,7 @@ Then: build the docker to create the images for the update jar
 ##### Note:- Don't  forget the dot at the end of the below command
 ```
 docker build -f Dockerfile -t <imageName> . 
+Example: docker build -f Dockerfile -t labourstat-image .
 ```
 You can check the created image using
 ```
@@ -19,6 +20,7 @@ docker images
 Then: run the image using:
 ```
 docker run -p 5000:8080 <imagesName>
+Example: docker run -p 8080:8080 labourstat-image
 ```
 ##### Note:- 5000 is a port that is exposed to call externally and 8000 is a port exposed for inside a container
 ##### Validate from POSTMAN using the docker ip address
