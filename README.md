@@ -23,6 +23,7 @@ docker run -p 5000:8080 <imagesName>
 Example: docker run -p 8080:8080 labourstat-image
 ```
 ##### Note:- 5000 is a port that is exposed to call externally and 8000 is a port exposed for inside a container
+Check the [DockerFile](Dockerfile) for the exact EXPOSE 
 ##### Validate from POSTMAN using the docker ip address
 ```
 http://192.168.99.100:5000/
