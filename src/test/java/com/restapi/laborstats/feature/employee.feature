@@ -1,8 +1,15 @@
-Feature: Check person DB
+Feature: List of stories/BR
+
+  Background:
+    Given an employee works here
+      | Person  |
+      | Tiger   |
+      | Garrett |
+      | Ashton  |
+      | Abebe   |
 
   Scenario Outline: just test the DB
 
-    Given an employee works here
     When the api is invoked
     Then the response code is "<status Code>"
     And an employee with "<id>" with "<salary>"

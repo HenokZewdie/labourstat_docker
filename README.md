@@ -28,7 +28,10 @@ Check the [DockerFile](Dockerfile) for the exact EXPOSE
 ```
 http://192.168.99.100:5000/
 ```
-
+##### check docker log
+```
+docker logs -f dab957d62527
+```
 ### Contributing
 Pull requests are welcome but Please update the readme file before. 
 Semtehal
