@@ -36,4 +36,17 @@ docker logs -f dab957d62527
 Pull requests are welcome but Please update the readme file before. 
 Semtehal
 
+### Tips
+
+## Generate serialVersionUID
+File -> Settings -> Editor -> Inspections -> Java -> Serialization issues : Find serialization class without serialVersionUID and check it. Back to the editor, clicks on the class name, ALT + ENTER (Windows), it will prompts the Add serialVersionUID field option.
+
+## Generate from Swagger yaml
+Go to the "swagger-codegen-cli-2.2.3.jar" directory and run the below command
+```
+java -jar swagger-codegen-cli-2.2.3.jar generate -i employee-swagger.yaml --api-package com.restapi.laborstats.api --model-package com.restapi.laborstats.mode
+l --group-id com.restapi.laborstats --artifact-id spring-swagger-codegen-employee --artifact-version 0.0.1-SNAPSHOT -l spring -o spring-swagger-codegen-employee
+```
+
+
 @Copyright : belew wegegna

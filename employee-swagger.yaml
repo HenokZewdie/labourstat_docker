@@ -1,0 +1,113 @@
+swagger: '2.0'
+info:
+  description: Spring Boot Swagger Example API for sample Employee Service
+  version: '1.0'
+  title: Sample for ControllerAdvice, Custom Exception
+  termsOfService: Terms of Service
+  contact:
+    name: Mena
+    url: 'https://www.google.com'
+    email: jilegn@gmail.com
+  license:
+    name: Apache License Version 2.0
+    url: 'https://www.apache.org/licesen.html'
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: employee-controller
+    description: This is the description about the APIs
+paths:
+  /rest/allEmployees:
+    post:
+      tags:
+        - employee-controller
+      summary: Persist and show All the Employees
+      operationId: allEmployeesMethodUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '100':
+          description: 100 is the message
+        '200':
+          description: Successful Hello World
+          schema:
+            $ref: '#/definitions/EmployeeResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  '/rest/getOneEmployees/{id}':
+    get:
+      tags:
+        - employee-controller
+      summary: A single Employee
+      operationId: getAllEmployeesMethodUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: This is the employee Id
+          required: true
+          type: string
+        - name: firstName
+          in: query
+          description: First name of the employee
+          required: true
+          type: string
+        - name: lastName
+          in: query
+          description: lastName
+          required: false
+          type: string
+      responses:
+        '100':
+          description: 100 is the message
+        '200':
+          description: Successful Hello World
+          schema:
+            $ref: '#/definitions/EmployeeResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+definitions:
+  EmployeeResponse:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EmployeeInfo'
+      status:
+        type: string
+        example: SUCCESS
+  EmployeeInfo:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 1
+      employee_age:
+        type: string
+        example: 6
+      employee_name:
+        type: string
+        example: Mena
+      employee_salary:
+        type: string
+        example: 789000
+      profile_image:
+        type: string
+        example: path
