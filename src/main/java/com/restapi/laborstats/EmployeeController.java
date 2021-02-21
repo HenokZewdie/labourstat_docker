@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import javax.xml.bind.JAXBException;
 
 @RestController
 @RequestMapping("/rest")
@@ -28,7 +29,8 @@ public class EmployeeController {
                     @ApiResponse(code = 200, message = "Successful Hello World")
             }
     )
-    @RequestMapping(value = "/allEmployees", method = RequestMethod.POST)
+    @RequestMapping(value = "/allEmployees", method = RequestMethod.GET)
+
     public EmployeeResponse allEmployeesMethod() {
         LOGGER.info("Enter into the Controller");
         EmployeeResponse employeeResponse = laborStatService.employeeResponse();
@@ -52,5 +54,19 @@ public class EmployeeController {
         employeeValidator.validateTheEmployeeRequest(id, firstName, lastName);
         EmployeeResponse employeeResponse = laborStatService.employeeResponse();
         return ResponseEntity.ok(employeeResponse);
+    }
+
+    @ApiOperation(value = "Test XML")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(code = 404, message = "404 is not found message"),
+                    @ApiResponse(code = 200, message = "Successful Hello World")
+            }
+    )
+    @RequestMapping(value = "/getxmlresponse", method = RequestMethod.GET)
+    public GeoPlugin getXMLResponse() throws JAXBException {
+        LOGGER.info("Enter into the GET Controller");
+        GeoPlugin geoPlugin = laborStatService.xmlResponse();
+        return geoPlugin;
     }
 }

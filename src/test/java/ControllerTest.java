@@ -36,7 +36,7 @@ public class ControllerTest {
     public void testController() throws Exception {
         this.mockMvc
                 .perform(
-                        post("http://localhost:8080/rest/allEmployees")
+                        get("http://localhost:8080/rest/allEmployees")
                                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }

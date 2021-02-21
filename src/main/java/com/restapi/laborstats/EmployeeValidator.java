@@ -20,7 +20,7 @@ public class EmployeeValidator {
     }
 
     private void validateEmployeeLastName(String lName) {
-        if(lName.trim().isEmpty()){
+        if(null==lName || lName.length()==0){
             throw new BadRequestException(EmployeeError.INVALID_LAST_NAME);
         }
     }
