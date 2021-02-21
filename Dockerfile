@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/laborstat.jar laborstat.jar
+ADD target/alemTest.jar alemTest.jar
 EXPOSE 5000
-ENTRYPOINT ["java", "-jar", "laborstat.jar"]
+ENTRYPOINT ["java", "-jar", "alemTest.jar"]
